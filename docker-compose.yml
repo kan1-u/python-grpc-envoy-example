@@ -16,7 +16,9 @@ services:
       - 9000:9000
 
   proxy:
-    image: envoyproxy/envoy-dev:158535979a833d076c44c701f1cdf5406187d3ba
+    image: example/proxy:1.0.0
+    build:
+      context: ./proxy
     ports:
       - "9901:9901"
       - "10000:10000"
