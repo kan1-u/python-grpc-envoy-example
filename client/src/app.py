@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 def get_message(name):
-    with grpc.insecure_channel('gateway.docker.internal:10000') as channel:
+    with grpc.insecure_channel('host.docker.internal:10000') as channel:
         stub = hello_world_pb2_grpc.GreeterStub(channel)
         response = stub.SayHello(hello_world_pb2.HelloRequest(name=name))
         return response.message
